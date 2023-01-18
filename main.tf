@@ -18,3 +18,13 @@ module "oci-infra" {
   bastion_subnet_id            = "ocid1.subnet.oc1.ap-melbourne-1.aaaaaaaapnyykynxapkx7z2ztiro5fs4dytozkz4z5nwuzvbuae5m7aqbrla"
 bastion_machine_user_name = "opc"
 }
+
+########################
+# Backend
+########################
+terraform {
+       backend "http" {
+            address = "https://objectstorage.ap-melbourne-1.oraclecloud.com/p/uVKbA_QrKnGENgYa4uQoiQrfwrJMnTWy1Fe1NMpdW836OAxpQGsQNHB95BppiIPF/n/ax30wocugwei/b/jenkins.bryk.ai-terraform/o/terraform.tfstate"
+            update_method = "PUT"
+       }
+}
