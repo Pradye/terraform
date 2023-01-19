@@ -59,13 +59,10 @@ variable "bastion_name" {
 
 }
 
-variable "bastion_cidr" {
-  
+variable "bastion_cidr" {}
+variable "bastion_max_session_ttl_in_seconds" {
 }
 
-variable "bastion_max_session_ttl_in_seconds" {
-  default = 7200
-}
 # Bastion Session
 
 variable "session_type" {
@@ -74,10 +71,11 @@ variable "session_type" {
 }
 
 variable "bastion_machine_user_name" {
-
 }
 
-## Time delay
 variable "time_sleep" {
-  default = "300s"
+}
+
+variable "bastion_session_public_key_content" {
+  
 }

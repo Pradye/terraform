@@ -17,14 +17,8 @@ module "oci-infra" {
   ]
   bastion_subnet_id            = "ocid1.subnet.oc1.ap-melbourne-1.aaaaaaaapnyykynxapkx7z2ztiro5fs4dytozkz4z5nwuzvbuae5m7aqbrla"
 bastion_machine_user_name = "opc"
-}
+bastion_max_session_ttl_in_seconds="7200"
 
-########################
-# Backend
-########################
-terraform {
-       backend "http" {
-            address = "https://objectstorage.ap-melbourne-1.oraclecloud.com/p/uVKbA_QrKnGENgYa4uQoiQrfwrJMnTWy1Fe1NMpdW836OAxpQGsQNHB95BppiIPF/n/ax30wocugwei/b/jenkins.bryk.ai-terraform/o/terraform.tfstate"
-            update_method = "PUT"
-       }
+bastion_session_public_key_content = var.bastion_session_public_key_content
+time_sleep = var.time_sleep
 }
